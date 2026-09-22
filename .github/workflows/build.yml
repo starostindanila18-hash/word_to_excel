@@ -13,9 +13,9 @@ jobs:
       with:
         python-version: '3.11'
     - run: pip install pyinstaller
-    - run: pip install -r requirements.txt
-    - run: pyinstaller --onefile --name MyApp main.py
+    - run: pip install python-docx openpyxl
+    - run: pyinstaller --onefile --name WordToExcel word_to_excel.py
     - uses: actions/upload-artifact@v4
       with:
         name: Windows-EXE
-        path: dist/MyApp.exe
+        path: dist/WordToExcel.exe

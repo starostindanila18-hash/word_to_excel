@@ -12,9 +12,8 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-    - run: pip install pyinstaller
-    - run: pip install python-docx openpyxl
-    - run: pyinstaller --onefile --name WordToExcel word_to_excel.py
+    - run: pip install pyinstaller python-docx openpyxl pyexcel-ods3
+    - run: pyinstaller --onefile --noconsole --name WordToExcel --hidden-import pyexcel_ods3 --hidden-import pyexcel_ods3.odsr --hidden-import pyexcel_ods3.odsw --hidden-import pyexcel_ods3.ods3r --hidden-import pyexcel_ods3.ods3w word_to_excel.py
     - uses: actions/upload-artifact@v4
       with:
         name: Windows-EXE
